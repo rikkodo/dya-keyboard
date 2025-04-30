@@ -56,10 +56,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // clang-format on
 
 void pointing_device_init_user(void) {
-    set_auto_mouse_layer(_MOUSE);
-    set_auto_mouse_enable(true);
-    dya_set_mouse_layer(_MOUSE);
-    dya_set_scroll_layer(_SCROLL);
+    /*
+     * Rikkodo
+     * 1. Disable Auto mouse Layer
+     * 2. MOUSE/SCROLL/CONFIG LAYER is TOP MOST LAYER
+     */
+    set_auto_mouse_layer(_CONFIG);
+    set_auto_mouse_enable(false);
+    dya_set_mouse_layer(_CONFIG);
+    dya_set_scroll_layer(_CONFIG);
     dya_set_config_layer(_CONFIG);
     dya_enable_layer_led();
 }
